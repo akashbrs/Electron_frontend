@@ -172,6 +172,17 @@ export default function Navbar() {
         <div className="nb__underline" />
       </header>
 
+      <svg width="0" height="0" style={{ position: "absolute", pointerEvents: "none" }}>
+        <filter id="darken-logo" colorInterpolationFilters="sRGB">
+          <feColorMatrix type="matrix" values="
+            1.28  0   -1.179 0  0
+            0     1.38 -1.267 0  0
+            0.268 0   -0.119 0  0
+            0     0    0     1  0
+          " />
+        </filter>
+      </svg>
+
       <style>{`
        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
@@ -253,6 +264,10 @@ export default function Navbar() {
   height: 28px;
   width: auto;
   object-fit: contain;
+}
+.nb--white .nb__logo-img {
+  mix-blend-mode: normal;
+  filter: url(#darken-logo);
 }
 
 
