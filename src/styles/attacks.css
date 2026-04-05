@@ -1,0 +1,156 @@
+/* Attack Simulation Panel Styles */
+.asp-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10000;
+    font-family: 'Outfit', sans-serif;
+}
+
+.asp-trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c8a030, #a07818);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(200, 160, 48, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.asp-trigger:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 12px 40px rgba(200, 160, 48, 0.6);
+}
+
+.asp-panel {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 320px;
+    background: rgba(26, 29, 38, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: aspSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes aspSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.asp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.asp-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #c8a030;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.asp-close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.asp-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.asp-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.asp-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.asp-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    padding: 12px;
+    font-size: 13px;
+    outline: none;
+}
+
+.asp-input:focus {
+    border-color: #c8a030;
+}
+
+.asp-btn {
+    background: #c8a030;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.asp-btn:hover {
+    background: #e0b040;
+    box-shadow: 0 4px 12px rgba(200, 160, 48, 0.3);
+}
+
+.asp-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.asp-status {
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ccc;
+    font-family: 'DM Mono', monospace;
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+.asp-xss-preview {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px dashed rgba(200, 160, 48, 0.5);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 12px;
+}

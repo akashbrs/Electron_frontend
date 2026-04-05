@@ -1,0 +1,191 @@
+Endpoint: /api/auth/login/
+Method: POST
+Purpose: Authenticate user credentials and receive access and refresh tokens.
+Headers: Content-Type: application/json
+Request Body: 
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+**Response Body (Success):**
+```json
+{
+  "access": "string",
+  "refresh": "string"
+}
+```
+Expected Status Codes: 200 OK, 400 Bad Request, 401 Unauthorized.
+
+Endpoint: /api/auth/register/
+Method: POST
+Purpose: Register a new user account.
+Headers: Content-Type: application/json
+Request Body: 
+```json
+{
+  "full_name": "string",
+  "email": "string",
+  "password": "string",
+  "confirm_password": "string"
+}
+```
+**Response Body (Success):**
+```json
+{
+  "message": "Registration successful"
+}
+```
+Expected Status Codes: 201 Created, 400 Bad Request.
+
+Endpoint: /api/auth/profile/
+Method: GET
+Purpose: Fetch the profile information of the currently authenticated user.
+Headers: Authorization: Bearer <token>
+**Response Body (Success):**
+```json
+{
+  "id": "string",
+  "full_name": "string",
+  "email": "string"
+}
+```
+Expected Status Codes: 200 OK, 401 Unauthorized.
+
+Endpoint: /api/products/
+Method: GET
+Purpose: Fetch a list of all products.
+Headers: None
+**Response Body (Success):**
+```json
+[
+  {
+    "id": "string",
+    "name": "string",
+    "price": "number",
+    "discountedPrice": "number",
+    "discount": "number",
+    "image": "string",
+    "category": "string"
+  }
+]
+```
+Expected Status Codes: 200 OK.
+
+Endpoint: /api/products/{productId}/
+Method: GET
+Purpose: Fetch detailed information for a specific product.
+Headers: None
+**Response Body (Success):**
+```json
+{
+  "id": "string",
+  "name": "string",
+  "price": "number",
+  "discountedPrice": "number",
+  "discount": "number",
+  "image": "string",
+  "category": "string",
+  "description": "string"
+}
+```
+Expected Status Codes: 200 OK, 404 Not Found.
+
+Endpoint: /api/categories/
+Method: GET
+Purpose: Fetch all available product categories.
+Headers: None
+**Response Body (Success):**
+```json
+[
+  {
+    "id": "string",
+    "name": "string",
+    "image": "string"
+  }
+]
+```
+Expected Status Codes: 200 OK.
+
+Endpoint: /api/cart/
+Method: GET
+Purpose: Fetch the current user's cart containing added items and quantities.
+Headers: Authorization: Bearer <token>
+**Response Body (Success):**
+```json
+{
+  "items": [
+    {
+      "id": "string",
+      "product_id": "string",
+      "quantity": "number"
+    }
+  ]
+}
+```
+Expected Status Codes: 200 OK, 401 Unauthorized.
+
+Endpoint: /api/cart/add/
+Method: POST
+Purpose: Add a specific product with quantity to the cart.
+Headers: Content-Type: application/json, Authorization: Bearer <token>
+Request Body: 
+```json
+{
+  "product_id": "string",
+  "quantity": "number"
+}
+```
+**Response Body (Success):**
+```json
+{
+  "message": "Item added to cart successfully"
+}
+```
+Expected Status Codes: 200 OK, 201 Created, 400 Bad Request, 401 Unauthorized.
+
+Endpoint: /api/cart/items/{itemId}/
+Method: PATCH
+Purpose: Update the quantity of a specific item in the cart.
+Headers: Content-Type: application/json, Authorization: Bearer <token>
+Request Body: 
+```json
+{
+  "quantity": "number"
+}
+```
+**Response Body (Success):**
+```json
+{
+  "message": "Cart item updated successfully"
+}
+```
+Expected Status Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 404 Not Found.
+
+Endpoint: /api/cart/items/{itemId}/
+Method: DELETE
+Purpose: Remove a specific item completely from the cart.
+Headers: Authorization: Bearer <token>
+**Response Body (Success):**
+```json
+{
+  "message": "Cart item removed successfully"
+}
+```
+Expected Status Codes: 200 OK, 204 No Content, 401 Unauthorized, 404 Not Found.
+
+Endpoint: /api/cart/summary/
+Method: POST
+Purpose: Generate an order checkout summary from the current cart state.
+Headers: Authorization: Bearer <token>
+**Response Body (Success):**
+```json
+{
+  "subtotal": "number",
+  "discount": "number",
+  "total": "number",
+  "deliveryFee": "number"
+}
+```
+Expected Status Codes: 200 OK, 400 Bad Request, 401 Unauthorized.

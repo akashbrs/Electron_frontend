@@ -1,0 +1,43 @@
+:root {
+  --ice-white: #F6F8FA;
+  --deep-graphite: #1C1C1E;
+  --soft-silver: #BFC5CE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--ice-white);
+  color: var(--deep-graphite);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: white;
+  color: black;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #ddd;
+}

@@ -1,0 +1,19 @@
+src/App.tsx(9,29): error TS1261: Already included file name 'C:/Users/Lenovo/Desktop/AD/Electronics/src/pages/ElectronPayment.tsx' differs from file name 'C:/Users/Lenovo/Desktop/AD/Electronics/src/pages/Electronpayment.tsx' only in casing.
+  The file is in the program because:
+    Imported via "./pages/ElectronPayment" from file 'C:/Users/Lenovo/Desktop/AD/Electronics/src/App.tsx'
+    Matched by include pattern 'src' in 'C:/Users/Lenovo/Desktop/AD/Electronics/tsconfig.app.json'
+src/components/products/CartContext.tsx(1,47): error TS1484: 'ReactNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/hooks/useProducts.ts(2,32): error TS2307: Cannot find module '../services/productService' or its corresponding type declarations.
+src/hooks/useProducts.ts(3,40): error TS2307: Cannot find module '../services/productService' or its corresponding type declarations.
+src/pages/AuthContext.tsx(1,47): error TS1484: 'ReactNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/pages/ElectronPayment.tsx(93,10): error TS6133: 'paidItems' is declared but its value is never read.
+src/pages/Home.tsx(11,28): error TS2339: Property 'stock' does not exist on type 'Product'.
+src/pages/Home.tsx(20,18): error TS2339: Property 'createdAt' does not exist on type 'Product'.
+src/pages/Home.tsx(20,52): error TS2339: Property 'createdAt' does not exist on type 'Product'.
+src/pages/Shop.tsx(52,22): error TS2339: Property 'createdAt' does not exist on type 'Product'.
+src/pages/Shop.tsx(52,56): error TS2339: Property 'createdAt' does not exist on type 'Product'.
+src/store/authStore.ts(2,29): error TS2307: Cannot find module '../services/authService' or its corresponding type declarations.
+src/store/authStore.ts(3,65): error TS2307: Cannot find module '../services/authService' or its corresponding type declarations.
+src/store/authStore.ts(4,17): error TS2307: Cannot find module '../services/api' or its corresponding type declarations.
+src/store/cartStore.ts(2,29): error TS2307: Cannot find module '../services/cartService' or its corresponding type declarations.
+src/store/cartStore.ts(3,41): error TS2307: Cannot find module '../services/cartService' or its corresponding type declarations.
