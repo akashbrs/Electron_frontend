@@ -46,7 +46,7 @@ export default function AttackSimulationPanel() {
                         try {
                             // Using axios directly to avoid any global interceptors if preferred, 
                             // but standard api is also fine.
-                            await axios.post('http://127.0.0.1:8000/api/auth/login/', {
+                            await axios.post(`${import.meta.env.VITE_API_URL || 'https://api.electron.prime-wave.tech/api/'}auth/login/`, {
                                 email: 'admin@vulnerable.com',
                                 password: `${payload}${i}`
                             });
@@ -62,7 +62,7 @@ export default function AttackSimulationPanel() {
                 case 'DDoS':
                     log(`Firing 100 rapid requests to /api/products/`);
                     const requests = Array.from({ length: 100 }).map((_, i) => 
-                        axios.get('http://127.0.0.1:8000/api/products/')
+                        axios.get(`${import.meta.env.VITE_API_URL || 'https://api.electron.prime-wave.tech/api/'}products/`)
                             .then(() => i % 20 === 0 && log(`Sent ${i} requests...`))
                             .catch(() => {})
                     );
