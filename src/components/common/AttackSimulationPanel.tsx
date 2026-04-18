@@ -61,10 +61,10 @@ export default function AttackSimulationPanel() {
 
                 case 'DDoS':
                     log(`Firing 100 rapid requests to /api/products/`);
-                    const requests = Array.from({ length: 100 }).map((_, i) => 
+                    const requests = Array.from({ length: 100 }).map((_, i) =>
                         axios.get(`${import.meta.env.VITE_API_URL || 'https://api.electron.prime-wave.tech/api/'}products/`)
                             .then(() => i % 20 === 0 && log(`Sent ${i} requests...`))
-                            .catch(() => {})
+                            .catch(() => { })
                     );
                     await Promise.all(requests);
                     log(`DDoS Simulation Complete (100 requests).`);
@@ -92,9 +92,9 @@ export default function AttackSimulationPanel() {
 
                     <div className="asp-group">
                         <label className="asp-label">Vulnerability Type</label>
-                        <select 
-                            className="asp-select" 
-                            value={type} 
+                        <select
+                            className="asp-select"
+                            value={type}
                             onChange={(e) => setType(e.target.value as AttackType)}
                         >
                             <option value="SQL Injection">SQL Injection</option>
@@ -108,14 +108,14 @@ export default function AttackSimulationPanel() {
                         <label className="asp-label">
                             {type === 'Brute Force' ? 'Base Password' : 'Payload Input'}
                         </label>
-                        <input 
+                        <input
                             className="asp-input"
                             value={payload}
                             onChange={(e) => setPayload(e.target.value)}
                             placeholder={
                                 type === 'SQL Injection' ? "' OR 1=1 --" :
-                                type === 'XSS' ? "<script>alert('XSS')</script>" :
-                                "Type payload here..."
+                                    type === 'XSS' ? "<script>alert('XSS')</script>" :
+                                        "Type payload here..."
                             }
                         />
                     </div>
@@ -123,15 +123,15 @@ export default function AttackSimulationPanel() {
                     {type === 'XSS' && payload && (
                         <div className="asp-group">
                             <label className="asp-label">XSS Preview Area</label>
-                            <div 
+                            <div
                                 className="asp-xss-preview"
                                 dangerouslySetInnerHTML={{ __html: payload }}
                             />
                         </div>
                     )}
 
-                    <button 
-                        className="asp-btn" 
+                    <button
+                        className="asp-btn"
                         onClick={triggerAttack}
                         disabled={isRunning}
                     >
